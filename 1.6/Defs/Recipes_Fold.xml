@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+  <!-- Fold surgeries. Fold recipe base: costs 25 cloth + 1 medicine (the medicine is consumed to
+    anesthetize the patient, see Bill_Medical.Notify_BillWorkStarted). Adds the FA_Folded hediff to
+    the target limb, disabling it as if the limb had been removed. -->
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="SurgeryFlesh" Name="FA_FoldLimbBase"
+Abstract="True">
+    <workerClass>FoldLimbs.RecipeWorker_FoldLimb</workerClass>
+    <jobString>Folding limb.</jobString>
+    <workAmount>1500</workAmount>
+    <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Cloth</li>
+          </thingDefs>
+        </filter>
+        <count>25</count>
+      </li>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Cloth</li>
+      </thingDefs>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_FoldLimbBase">
+    <defName>FA_FoldLeftArm</defName>
+    <label>Disable arm</label>
+    <description>Bind the arm behind the body and disable its motor neural pathways.</description>
+    <jobString>Disabling arm.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Arm</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_FoldLimbBase">
+    <defName>FA_FoldRightArm</defName>
+    <label>Disable arm</label>
+    <description>Bind the arm behind the body and disable its motor neural pathways.</description>
+    <jobString>Disabling arm.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Arm</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_FoldLimbBase">
+    <defName>FA_FoldLeftLeg</defName>
+    <label>Disable leg</label>
+    <description>Bind the leg behind the body and disable its motor neural pathways.</description>
+    <jobString>Disabling leg.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Leg</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_FoldLimbBase">
+    <defName>FA_FoldRightLeg</defName>
+    <label>Disable leg</label>
+    <description>Bind the leg behind the body and disable its motor neural pathways.</description>
+    <jobString>Disabling leg.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Leg</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
+  <!-- Bionic (folded) install surgeries. Base mirrors the vanilla bionic install recipes
+    (SurgeryInstallBodyPartArtificialBase): same materials, same added part. The difference: the
+    natural limb is not removed - it is folded instead (see
+    FoldLimbs.RecipeWorker_InstallBionicFolded). -->
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="SurgeryInstallBodyPartArtificialBase"
+    Name="FA_InstallBionicFoldedBase" Abstract="True">
+    <workerClass>FoldLimbs.RecipeWorker_InstallBionicFolded</workerClass>
+    <bionic>true</bionic>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_InstallBionicFoldedBase">
+    <defName>FA_InstallBionicArmFoldedLeft</defName>
+    <label>Install bionic arm (without removing natural limb)</label>
+    <description>Install a bionic arm without removing the natural arm. The natural arm will be
+      restrained and disabled, while the bionic limb will be attached to the existing joints.</description>
+    <jobString>Installing bionic arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicArm</addsHediff>
+    <limbKind>Arm</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_InstallBionicFoldedBase">
+    <defName>FA_InstallBionicArmFoldedRight</defName>
+    <label>Install bionic arm (without removing natural limb)</label>
+    <description>Install a bionic arm without removing the natural arm. The natural arm will be
+      restrained and disabled, while the bionic limb will be attached to the existing joints.</description>
+    <jobString>Installing bionic arm.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicArm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicArm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicArm</addsHediff>
+    <limbKind>Arm</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_InstallBionicFoldedBase">
+    <defName>FA_InstallBionicLegFoldedLeft</defName>
+    <label>Install bionic leg (without removing natural limb)</label>
+    <description>Install a bionic leg without removing the natural leg. The natural leg will be
+      restrained and disabled, while the bionic limb will be attached to the existing limbs.</description>
+    <jobString>Installing bionic leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicLeg</addsHediff>
+    <limbKind>Leg</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_InstallBionicFoldedBase">
+    <defName>FA_InstallBionicLegFoldedRight</defName>
+    <label>Install bionic leg (without removing natural limb)</label>
+    <description>Install a bionic leg without removing the natural leg. The natural leg will be
+      restrained and disabled, while the bionic limb will be attached to the existing limbs.</description>
+    <jobString>Installing bionic leg.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BionicLeg</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>BionicLeg</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>BionicLeg</addsHediff>
+    <limbKind>Leg</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
+</Defs>

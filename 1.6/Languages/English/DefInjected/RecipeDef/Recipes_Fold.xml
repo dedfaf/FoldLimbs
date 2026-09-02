@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- Disable surgery -->
+  <FA_FoldLeftArm.label>Disable arm</FA_FoldLeftArm.label>
+  <FA_FoldLeftArm.description>Bind the arm behind the body and disable its motor neural pathways.</FA_FoldLeftArm.description>
+  <FA_FoldLeftArm.jobString>Disabling arm.</FA_FoldLeftArm.jobString>
+
+  <FA_FoldRightArm.label>Disable arm</FA_FoldRightArm.label>
+  <FA_FoldRightArm.description>Bind the arm behind the body and disable its motor neural pathways.</FA_FoldRightArm.description>
+  <FA_FoldRightArm.jobString>Disabling arm.</FA_FoldRightArm.jobString>
+
+  <FA_FoldLeftLeg.label>Disable leg</FA_FoldLeftLeg.label>
+  <FA_FoldLeftLeg.description>Bind the leg behind the body and disable its motor neural pathways.</FA_FoldLeftLeg.description>
+  <FA_FoldLeftLeg.jobString>Disabling leg.</FA_FoldLeftLeg.jobString>
+
+  <FA_FoldRightLeg.label>Disable leg</FA_FoldRightLeg.label>
+  <FA_FoldRightLeg.description>Bind the leg behind the body and disable its motor neural pathways.</FA_FoldRightLeg.description>
+  <FA_FoldRightLeg.jobString>Disabling leg.</FA_FoldRightLeg.jobString>
+
+  <!-- Install bionic limb (without removing the natural limb) -->
+  <FA_InstallBionicArmFoldedLeft.label>Install bionic arm (without removing natural limb)</FA_InstallBionicArmFoldedLeft.label>
+  <FA_InstallBionicArmFoldedLeft.description>Install a bionic arm without removing the natural arm. The natural arm will be restrainted and disabled, while the bionic limb will be attached to the existing joints.</FA_InstallBionicArmFoldedLeft.description>
+  <FA_InstallBionicArmFoldedLeft.jobString>Installing bionic arm.</FA_InstallBionicArmFoldedLeft.jobString>
+
+  <FA_InstallBionicArmFoldedRight.label>Install bionic arm (without removing natural limb)</FA_InstallBionicArmFoldedRight.label>
+  <FA_InstallBionicArmFoldedRight.description>Install a bionic arm without removing the natural arm. The natural arm will be restrainted and disabled, while the bionic limb will be attached to the existing joints.</FA_InstallBionicArmFoldedRight.description>
+  <FA_InstallBionicArmFoldedRight.jobString>Installing bionic arm.</FA_InstallBionicArmFoldedRight.jobString>
+
+  <FA_InstallBionicLegFoldedLeft.label>Install bionic leg (without removing natural limb)</FA_InstallBionicLegFoldedLeft.label>
+  <FA_InstallBionicLegFoldedLeft.description>Install a bionic leg without removing the natural leg. The natural leg will be restrainted and disabled, while the bionic limb will be attached to the existing limbs.</FA_InstallBionicLegFoldedLeft.description>
+  <FA_InstallBionicLegFoldedLeft.jobString>Installing bionic leg.</FA_InstallBionicLegFoldedLeft.jobString>
+
+  <FA_InstallBionicLegFoldedRight.label>Install bionic leg (without removing natural limb)</FA_InstallBionicLegFoldedRight.label>
+  <FA_InstallBionicLegFoldedRight.description>Install a bionic leg without removing the natural leg. The natural leg will be restrainted and disabled, while the bionic limb will be attached to the existing limbs.</FA_InstallBionicLegFoldedRight.description>
+  <FA_InstallBionicLegFoldedRight.jobString>Installing bionic leg.</FA_InstallBionicLegFoldedRight.jobString>
+
+</LanguageData>

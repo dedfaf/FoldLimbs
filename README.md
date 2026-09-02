@@ -1,39 +1,33 @@
-# Rimworld Mod Template
+# FoldLimbs
 
-This template is created for Rimworld modders who use [Visual Studio Code](https://code.visualstudio.com/) instead of Visual Studio IDE.
+In vanilla RimWorld, installing a bionic arm or bionic leg replaces the pawn's natural limb. This mod provides an alternative option to restrain and disable the existing limb when installing a bionic limb, allowing the bionic limb to be removed later and the original limb's functionality to be restored.
 
-* __No virtual folders__. Easy to manage and edit both `xml` and `cs` files.
-* __Lightweight__. Visual Studio Code only takes up to 500 MB of storage space and is lighting fast.
-* __Automated__. Integrated build, scripting and management tools to perform common tasks making everyday workflows faster.
-* __Customizable__. Almost every feature can be changed, whenever it is editor UI, keybinds or folder structure.
+Disabled natural limb parts have 0% efficiency, but can still be injured and cause pain. This behavior can be disabled in the mod settings.
 
-## Setup
-### Windows
-1. Download and install [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) and [.Net Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48). This step can be skipped if you already have required C# packages from Visual Studio IDE.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
+## Features
 
-### Linux
-1. Linux `dotnet` setup may vary depending on how you install Rimworld and what distro is being used. Follow [Microsoft's instructions](https://learn.microsoft.com/en-us/dotnet/core/install/linux) to install `dotnet`.
-2. Install [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-3. Clone, pull or download this template into your Rimworld `Mods` folder.
+The following surgery types have been added:
 
-## Additional Notes
-* By pressing `F5` key VS Code will perform 2 operations: build assembly file and launch Rimworld executable. 
-* All intermediate files are kept inside `.vscode` folder.
-* For XML only modders remove preLaunchTask line from `.vscode/launch.json` file.
-* Modify `.vscode/mod.csproj` and `About/About.xml` according to your needs.
+* Disable limb
+* Install bionic limb (without removing the original limb)
+* Restore limb
 
-## Debugger
-### Setup
-1. Follow the instructions of [pardeike / Rimworld-Doorstop](https://github.com/pardeike/Rimworld-Doorstop) to create a debug server.
-2. Install [Mono Debug extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
-3. In the Debug Panel (`Ctrl+Shift+D`), switch the configuration from `Build & Run` to `Build & Debug`.
-4. Linux users additionally need to install the `mono` package.
+In addition, this mod changes the vanilla logic for removing bionic body parts. In vanilla RimWorld, removing a bionic body part deals 99,999 damage to the entire limb, destroying it completely and also removing the associated `Hediff_AddedPart`. When a pawn has both the **Restrained and Disabled** condition and a bionic body part, performing the bionic removal surgery with this mod will only remove the bionic's added-part hediff, leaving the original limb intact.
 
-### Potential Issues
-* __Launch process hanging__  
-If the Doorstop `debug_suspend` option is enabled, the `Build & Run` action will hang because the process is waiting for a debugger handshake. To resolve this, either attach the debugger manually or use the `Build & Debug` action to automate the connection.
+### Compatibility
 
-## Companion Tools
-* __Mod Generator Utility__ | [Jellypowered / Prepare New Mod](https://github.com/Jellypowered/PrepareNewMod)
+Obviously, this mod is incompatible with any mod that modifies the surgery logic for bionic body parts, and there are currently no plans to provide compatibility patches.
+
+This mod should be safe to add to an existing save, but making an additional backup of your save is recommended.
+
+> You can use Dev Mode to restore the original limbs of colonists whose limbs have already been removed, and then use the surgery recipes provided by this mod again.
+
+## Add or fix Translation
+
+Just PR to this repo.
+
+## Build
+
+```
+dotnet build .vscode
+```

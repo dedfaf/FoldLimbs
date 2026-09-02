@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--
+    Folded limb hediff.
+    The stage's partEfficiencyOffset (-1) makes the limb it is attached to contribute 0%
+    to all relevant pawn capacities, which is exactly the same effect as the limb being removed.
+    When a bionic/artificial part is installed on the same limb the fold no longer applies
+    (see the Hediff_Folded class), so the artificial part works normally.
+  -->
+  <HediffDef>
+    <defName>FA_Folded</defName>
+    <label>Restraint and Disabled</label>
+    <labelNoun>Restraint and Disabled Limb</labelNoun>
+    <description>This limb has been restrainted and its motor neural pathways have been disabled, but sensation is still preserved. This condition can be reversed at any time.</description>
+    <hediffClass>FoldLimbs.Hediff_Folded</hediffClass>
+    <defaultLabelColor>(0.5, 0.5, 0.5)</defaultLabelColor>
+    <initialSeverity>1</initialSeverity>
+    <isBad>true</isBad>
+    <makesAlert>false</makesAlert>
+    <tendable>false</tendable>
+    <everCurableByItem>false</everCurableByItem>
+    <chronic>true</chronic>
+    <stages>
+      <li>
+        <partEfficiencyOffset>-1</partEfficiencyOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

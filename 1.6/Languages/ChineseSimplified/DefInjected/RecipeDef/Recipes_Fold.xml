@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <!-- 禁用手术 -->
+  <FA_FoldLeftArm.label>禁用手臂</FA_FoldLeftArm.label>
+  <FA_FoldLeftArm.description>将手臂向后束缚，并关闭其运动神经通路。</FA_FoldLeftArm.description>
+  <FA_FoldLeftArm.jobString>正在禁用手臂。</FA_FoldLeftArm.jobString>
+
+  <FA_FoldRightArm.label>禁用手臂</FA_FoldRightArm.label>
+  <FA_FoldRightArm.description>将手臂向后束缚，并关闭其运动神经通路。</FA_FoldRightArm.description>
+  <FA_FoldRightArm.jobString>正在禁用手臂。</FA_FoldRightArm.jobString>
+
+  <FA_FoldLeftLeg.label>禁用腿部</FA_FoldLeftLeg.label>
+  <FA_FoldLeftLeg.description>将腿部向后束缚，并关闭其运动神经通路。</FA_FoldLeftLeg.description>
+  <FA_FoldLeftLeg.jobString>正在禁用腿部。</FA_FoldLeftLeg.jobString>
+
+  <FA_FoldRightLeg.label>禁用腿部</FA_FoldRightLeg.label>
+  <FA_FoldRightLeg.description>将腿部向后束缚，并关闭其运动神经通路。</FA_FoldRightLeg.description>
+  <FA_FoldRightLeg.jobString>正在禁用腿部。</FA_FoldRightLeg.jobString>
+
+  <!-- 安装仿生手术 （不移除原生肢体）-->
+  <FA_InstallBionicArmFoldedLeft.label>安装仿生臂（不移除原生肢体）</FA_InstallBionicArmFoldedLeft.label>
+  <FA_InstallBionicArmFoldedLeft.description>安装仿生手臂而不移除原生手臂。原生手臂将被束缚和禁用，而仿生肢体将附加于原有关节。</FA_InstallBionicArmFoldedLeft.description>
+  <FA_InstallBionicArmFoldedLeft.jobString>正在安装仿生臂。</FA_InstallBionicArmFoldedLeft.jobString>
+
+  <FA_InstallBionicArmFoldedRight.label>安装仿生臂（不移除原生肢体）</FA_InstallBionicArmFoldedRight.label>
+  <FA_InstallBionicArmFoldedRight.description>安装仿生臂而不移除原生手臂。原生手臂将被束缚和禁用，而仿生肢体将附加于原有关节。</FA_InstallBionicArmFoldedRight.description>
+  <FA_InstallBionicArmFoldedRight.jobString>正在安装仿生臂。</FA_InstallBionicArmFoldedRight.jobString>
+
+  <FA_InstallBionicLegFoldedLeft.label>安装仿生腿（不移除原生肢体）</FA_InstallBionicLegFoldedLeft.label>
+  <FA_InstallBionicLegFoldedLeft.description>安装仿生腿而不移除原生腿部。原生腿部将被束缚和禁用，而仿生肢体将附加于原有肢体。</FA_InstallBionicLegFoldedLeft.description>
+  <FA_InstallBionicLegFoldedLeft.jobString>正在安装仿生腿。</FA_InstallBionicLegFoldedLeft.jobString>
+
+  <FA_InstallBionicLegFoldedRight.label>安装仿生腿（不移除原生肢体）</FA_InstallBionicLegFoldedRight.label>
+  <FA_InstallBionicLegFoldedRight.description>安装仿生腿而不移除原生腿部。原生腿部将被束缚和禁用，而仿生肢体将附加于原有肢体。</FA_InstallBionicLegFoldedRight.description>
+  <FA_InstallBionicLegFoldedRight.jobString>正在安装仿生腿。</FA_InstallBionicLegFoldedRight.jobString>
+
+</LanguageData>

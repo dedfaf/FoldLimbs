@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <FA_Folded.label>Restraint and Disabled</FA_Folded.label>
+  <FA_Folded.labelNoun>Restraint and Disabled Limb</FA_Folded.labelNoun>
+  <FA_Folded.description>This limb has been restrainted and its motor neural pathways have been disabled, but sensation is still preserved. This condition can be reversed at any time.</FA_Folded.description>
+
+</LanguageData>

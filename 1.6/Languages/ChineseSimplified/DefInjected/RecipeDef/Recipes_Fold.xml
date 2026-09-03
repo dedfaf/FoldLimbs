@@ -18,6 +18,23 @@
   <FA_FoldRightLeg.description>将腿部向后束缚，并关闭其运动神经通路。</FA_FoldRightLeg.description>
   <FA_FoldRightLeg.jobString>正在禁用腿部。</FA_FoldRightLeg.jobString>
 
+  <!-- 启用（恢复）手术 -->
+  <FA_EnableLeftArm.label>启用手臂</FA_EnableLeftArm.label>
+  <FA_EnableLeftArm.description>将手臂从束缚中释放，并恢复其运动神经通路。</FA_EnableLeftArm.description>
+  <FA_EnableLeftArm.jobString>正在启用手臂。</FA_EnableLeftArm.jobString>
+
+  <FA_EnableRightArm.label>启用手臂</FA_EnableRightArm.label>
+  <FA_EnableRightArm.description>将手臂从束缚中释放，并恢复其运动神经通路。</FA_EnableRightArm.description>
+  <FA_EnableRightArm.jobString>正在启用手臂。</FA_EnableRightArm.jobString>
+
+  <FA_EnableLeftLeg.label>启用腿部</FA_EnableLeftLeg.label>
+  <FA_EnableLeftLeg.description>将腿部从束缚中释放，并恢复其运动神经通路。</FA_EnableLeftLeg.description>
+  <FA_EnableLeftLeg.jobString>正在启用腿部。</FA_EnableLeftLeg.jobString>
+
+  <FA_EnableRightLeg.label>启用腿部</FA_EnableRightLeg.label>
+  <FA_EnableRightLeg.description>将腿部从束缚中释放，并恢复其运动神经通路。</FA_EnableRightLeg.description>
+  <FA_EnableRightLeg.jobString>正在启用腿部。</FA_EnableRightLeg.jobString>
+
   <!-- 安装仿生手术 （不移除原生肢体）-->
   <FA_InstallBionicArmFoldedLeft.label>安装仿生臂（不移除原生肢体）</FA_InstallBionicArmFoldedLeft.label>
   <FA_InstallBionicArmFoldedLeft.description>安装仿生手臂而不移除原生手臂。原生手臂将被束缚和禁用，而仿生肢体将附加于原有关节。</FA_InstallBionicArmFoldedLeft.description>

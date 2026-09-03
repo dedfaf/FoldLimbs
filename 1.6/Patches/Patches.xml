@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
+
+	<!--
+		Replace the vanilla "RemoveBodyPart" surgery worker so that limbs carrying the
+		restraint/disabled hediff (FA_Folded) are not offered for amputation - such limbs are
+		meant to be restored by this mod's "enable limb" surgery instead.
+	-->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/RecipeDef[defName="RemoveBodyPart"]/workerClass</xpath>
+		<value>
+			<workerClass>FoldLimbs.Recipe_RemoveBodyPart_NoFoldAmputation</workerClass>
+		</value>
+	</Operation>
+
 </Patch>

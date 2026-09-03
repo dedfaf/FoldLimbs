@@ -18,6 +18,23 @@
   <FA_FoldRightLeg.description>Bind the leg behind the body and disable its motor neural pathways.</FA_FoldRightLeg.description>
   <FA_FoldRightLeg.jobString>Disabling leg.</FA_FoldRightLeg.jobString>
 
+  <!-- Enable (restore) surgery -->
+  <FA_EnableLeftArm.label>Enable arm</FA_EnableLeftArm.label>
+  <FA_EnableLeftArm.description>Release the arm from its restraints and restore its motor neural pathways.</FA_EnableLeftArm.description>
+  <FA_EnableLeftArm.jobString>Enabling arm.</FA_EnableLeftArm.jobString>
+
+  <FA_EnableRightArm.label>Enable arm</FA_EnableRightArm.label>
+  <FA_EnableRightArm.description>Release the arm from its restraints and restore its motor neural pathways.</FA_EnableRightArm.description>
+  <FA_EnableRightArm.jobString>Enabling arm.</FA_EnableRightArm.jobString>
+
+  <FA_EnableLeftLeg.label>Enable leg</FA_EnableLeftLeg.label>
+  <FA_EnableLeftLeg.description>Release the leg from its restraints and restore its motor neural pathways.</FA_EnableLeftLeg.description>
+  <FA_EnableLeftLeg.jobString>Enabling leg.</FA_EnableLeftLeg.jobString>
+
+  <FA_EnableRightLeg.label>Enable leg</FA_EnableRightLeg.label>
+  <FA_EnableRightLeg.description>Release the leg from its restraints and restore its motor neural pathways.</FA_EnableRightLeg.description>
+  <FA_EnableRightLeg.jobString>Enabling leg.</FA_EnableRightLeg.jobString>
+
   <!-- Install bionic limb (without removing the natural limb) -->
   <FA_InstallBionicArmFoldedLeft.label>Install bionic arm (without removing natural limb)</FA_InstallBionicArmFoldedLeft.label>
   <FA_InstallBionicArmFoldedLeft.description>Install a bionic arm without removing the natural arm. The natural arm will be restrainted and disabled, while the bionic limb will be attached to the existing joints.</FA_InstallBionicArmFoldedLeft.description>

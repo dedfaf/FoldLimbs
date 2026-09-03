@@ -42,6 +42,34 @@ namespace FoldLimbs
         }
 
         /// <summary>
+        /// Returns true if the given body part carries the restraint/disabled hediff and the limb is
+        /// otherwise natural (no artificial part on the part, its children or its ancestors).
+        /// Such limbs can be restored with the "enable limb" surgery and should NOT be offered for
+        /// amputation (the fold is reversible, amputation would permanently destroy the limb).
+        /// </summary>
+        public static bool IsFoldedNaturalLimb(Pawn pawn, BodyPartRecord part)
+        {
+            if (FoldLimbsDefOf.FA_Folded == null
+                || pawn == null
+                || pawn.health == null
+                || pawn.health.hediffSet == null
+                || part == null)
+            {
+                return false;
+            }
+            bool hasFolded = false;
+            foreach (Hediff h in pawn.health.hediffSet.hediffs)
+            {
+                if (h.Part == part && h.def == FoldLimbsDefOf.FA_Folded)
+                {
+                    hasFolded = true;
+                    break;
+                }
+            }
+            return hasFolded && !HasAddedPartOnLimb(pawn, part);
+        }
+
+        /// <summary>
         /// Returns true if the given body part carries both the folded hediff and an artificial
         /// (added) part on the same part - i.e. a limb produced by the "install bionic (folded)"
         /// surgeries of this mod. For such limbs the natural limb underneath was NOT surgically

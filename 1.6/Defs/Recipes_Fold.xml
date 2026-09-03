@@ -95,6 +95,88 @@ Abstract="True">
     <side>Right</side>
   </RecipeDef>
 
+  <!-- Enable (restore) limb surgeries. Reverses the restraint/disabled (FA_Folded) hediff, restoring
+    the limb's use. Costs 1 medicine (used to anesthetize the patient). Only applies to natural limbs
+    that are currently disabled by this mod. -->
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="SurgeryFlesh" Name="FA_EnableLimbBase"
+    Abstract="True">
+    <workerClass>FoldLimbs.RecipeWorker_EnableLimb</workerClass>
+    <jobString>Enabling limb.</jobString>
+    <workAmount>250</workAmount>
+    <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
+    <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <recipeUsers>
+      <li>Human</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Medicine</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <categories>
+        <li>Medicine</li>
+      </categories>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_EnableLimbBase">
+    <defName>FA_EnableLeftArm</defName>
+    <label>Enable arm</label>
+    <description>Release the arm from its restraints and restore its motor neural pathways.</description>
+    <jobString>Enabling arm.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Arm</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_EnableLimbBase">
+    <defName>FA_EnableRightArm</defName>
+    <label>Enable arm</label>
+    <description>Release the arm from its restraints and restore its motor neural pathways.</description>
+    <jobString>Enabling arm.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Shoulder</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Arm</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_EnableLimbBase">
+    <defName>FA_EnableLeftLeg</defName>
+    <label>Enable leg</label>
+    <description>Release the leg from its restraints and restore its motor neural pathways.</description>
+    <jobString>Enabling leg.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Leg</limbKind>
+    <side>Left</side>
+  </RecipeDef>
+
+  <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="FA_EnableLimbBase">
+    <defName>FA_EnableRightLeg</defName>
+    <label>Enable leg</label>
+    <description>Release the leg from its restraints and restore its motor neural pathways.</description>
+    <jobString>Enabling leg.</jobString>
+    <appliedOnFixedBodyParts>
+      <li>Leg</li>
+    </appliedOnFixedBodyParts>
+    <limbKind>Leg</limbKind>
+    <side>Right</side>
+  </RecipeDef>
+
   <!-- Bionic (folded) install surgeries. Base mirrors the vanilla bionic install recipes
     (SurgeryInstallBodyPartArtificialBase): same materials, same added part. The difference: the
     natural limb is not removed - it is folded instead (see

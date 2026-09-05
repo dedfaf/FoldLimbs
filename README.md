@@ -51,6 +51,15 @@ This mod should be safe to add to an existing save, but making an additional bac
 
 Just PR to this repo.
 
+## Contribute
+
+I'm not very familiar with RimWorld's core mechanics, nor am I a professional C# programmer. I used AI to understand the game's source code and generate code.
+
+The main purpose of creating this mod was to meet my own personal needs. If there is enough interest in the mod, I may consider refactoring code in the future. Contributions from others are also very welcome.
+
+You can report issues or submit pull requests in this repository. You are free to fork, copy, redistribute, or re-upload any content from this repository without having to include any information about me.
+
+
 ## Build
 
 ```

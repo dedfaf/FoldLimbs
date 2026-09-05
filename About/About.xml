@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<packageId>dedfaf.foldlimbs</packageId>
-	<name>Fold Limbs</name>
+	<name>Fold Limbs 义肢拘束</name>
 	<author>FoldLimbs</author>
 	<!-- <modIconPath>path/to/icon</modIconPath> -->
 	<supportedVersions>
@@ -29,5 +29,5 @@
 		<li>brrainz.harmony</li>
 	</loadAfter>
 
-	<description>Adds surgeries to install bionics without removing limbs.</description>
+	<description>Adds surgeries to install bionics without removing limbs. Check Github repo README for more detail.</description>
 </ModMetaData>

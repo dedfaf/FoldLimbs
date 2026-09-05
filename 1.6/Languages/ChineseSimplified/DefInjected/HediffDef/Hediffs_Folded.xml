@@ -3,6 +3,6 @@
 
   <FA_Folded.label>束缚禁用</FA_Folded.label>
   <FA_Folded.labelNoun>被束缚禁用的肢体</FA_Folded.labelNoun>
-  <FA_Folded.description>该肢体已被束缚，并关闭了运动神经通路，但仍保留感觉。这个状态可以被随时恢复。</FA_Folded.description>
+  <FA_Folded.description>该肢体已被束缚，并关闭了运动神经通路，但仍保留感觉。&#xA;这个状态可以由掌握仿生学技术的医生恢复。</FA_Folded.description>
 
 </LanguageData>

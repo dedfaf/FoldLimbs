@@ -14,7 +14,7 @@ namespace FoldLimbs
         {
             var harmony = new Harmony("foldlimbs.foldlimbs");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
-            Log.Message("[FoldLimbs] FoldLimbs loaded. Time to fold some limbs!");
+            Log.Message("[FoldLimbs] FoldLimbs loaded.");
         }
     }
 }

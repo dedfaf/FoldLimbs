@@ -11,7 +11,8 @@ Abstract="True">
     <workerClass>FoldLimbs.RecipeWorker_FoldLimb</workerClass>
     <jobString>Folding limb.</jobString>
     <workAmount>1500</workAmount>
-    <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
+    <researchPrerequisite>Bionics</researchPrerequisite>
+    <surgerySuccessChanceFactor>99999</surgerySuccessChanceFactor>
     <developmentalStageFilter>Child, Adult</developmentalStageFilter>
     <skillRequirements>
       <Medicine>5</Medicine>
@@ -104,7 +105,8 @@ Abstract="True">
     <workerClass>FoldLimbs.RecipeWorker_EnableLimb</workerClass>
     <jobString>Enabling limb.</jobString>
     <workAmount>250</workAmount>
-    <surgerySuccessChanceFactor>1.2</surgerySuccessChanceFactor>
+    <researchPrerequisite>Bionics</researchPrerequisite>
+    <surgerySuccessChanceFactor>99999</surgerySuccessChanceFactor>
     <developmentalStageFilter>Child, Adult</developmentalStageFilter>
     <skillRequirements>
       <Medicine>5</Medicine>
@@ -185,6 +187,8 @@ Abstract="True">
   <RecipeDef Class="FoldLimbs.FoldRecipeDef" ParentName="SurgeryInstallBodyPartArtificialBase"
     Name="FA_InstallBionicFoldedBase" Abstract="True">
     <workerClass>FoldLimbs.RecipeWorker_InstallBionicFolded</workerClass>
+    <!-- Installing a bionic (folded) requires the bionics research, like every other bionic part. -->
+    <researchPrerequisite>Bionics</researchPrerequisite>
     <bionic>true</bionic>
   </RecipeDef>
 

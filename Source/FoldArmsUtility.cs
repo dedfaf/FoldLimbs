@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
@@ -144,6 +145,66 @@ namespace FoldLimbs
         public static bool IsNaturalPartUnderFoldedBionic(Pawn pawn, BodyPartRecord part)
         {
             return TryGetFoldedBionicRoot(pawn, part) != null;
+        }
+
+        /// <summary>
+        /// True if the given hediff def is one of this mod's "bionic" mirror wound defs
+        /// (FA_BionicCrack, FA_BionicGunshot, ...). Used to tell bionic damage apart from natural
+        /// (original limb) damage that may exist on the same body part record.
+        /// </summary>
+        public static bool IsBionicMirrorWoundDef(HediffDef def)
+        {
+            return def != null && def.defName.StartsWith("FA_Bionic", System.StringComparison.Ordinal);
+        }
+
+        /// <summary>
+        /// True if the given injury represents damage to the ORIGINAL limb of a "restrained bionic"
+        /// limb: either the injury is on a natural part kept under the bionic, or it is a non-bionic
+        /// (ordinary flesh) wound on the shoulder/leg root that carries the bionic. Such wounds should
+        /// hurt and bleed like normal flesh wounds; "bionic" mirror wounds on the root stay painless.
+        /// </summary>
+        public static bool IsNaturalWoundOnFoldedBionicLimb(Pawn pawn, Hediff_Injury injury)
+        {
+            if (injury == null || pawn == null || pawn.health == null || pawn.health.hediffSet == null || injury.Part == null)
+            {
+                return false;
+            }
+            if (IsNaturalPartUnderFoldedBionic(pawn, injury.Part))
+            {
+                return true;
+            }
+            if (IsFoldedArtificialLimb(pawn, injury.Part))
+            {
+                return !IsBionicMirrorWoundDef(injury.def);
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Picks a random present natural part of the limb below a "restrained bionic" root
+        /// (weighted by coverage), or null when there is none. Used e.g. by elemental (burn/frostbite)
+        /// damage that affects the natural limb underneath the bionic as well.
+        /// </summary>
+        public static BodyPartRecord GetAnyNaturalPartUnderFoldedBionic(Pawn pawn, BodyPartRecord root)
+        {
+            if (pawn == null || pawn.health == null || pawn.health.hediffSet == null || root == null)
+            {
+                return null;
+            }
+            List<BodyPartRecord> candidates = new List<BodyPartRecord>();
+            foreach (BodyPartRecord p in root.GetPartAndAllChildParts())
+            {
+                if (p == root || p.coverageAbs <= 0f || pawn.health.hediffSet.PartIsMissing(p))
+                {
+                    continue;
+                }
+                candidates.Add(p);
+            }
+            if (candidates.Count == 0)
+            {
+                return null;
+            }
+            return candidates.RandomElementByWeight(p => p.coverageAbs);
         }
     }
 }

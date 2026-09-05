@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <FA_BionicCrack.label>仿生体破裂</FA_BionicCrack.label>
+  <FA_BionicCrack.labelNoun>仿生体破裂损伤</FA_BionicCrack.labelNoun>
+  <FA_BionicCrack.description>安装在肢体上的仿生部件受到的破裂损伤。属性与原版裂纹伤口完全相同。</FA_BionicCrack.description>
+
+  <FA_BionicGunshot.label>仿生体枪伤</FA_BionicGunshot.label>
+  <FA_BionicGunshot.labelNoun>仿生体枪伤</FA_BionicGunshot.labelNoun>
+  <FA_BionicGunshot.description>安装在肢体上的仿生部件受到的枪击损伤。属性与原版枪伤完全相同。</FA_BionicGunshot.description>
+
+  <FA_BionicBurn.label>仿生体灼伤</FA_BionicBurn.label>
+  <FA_BionicBurn.labelNoun>仿生体灼伤</FA_BionicBurn.labelNoun>
+  <FA_BionicBurn.description>安装在肢体上的仿生部件受到的灼伤。属性与原版灼伤完全相同。</FA_BionicBurn.description>
+
+  <FA_BionicFrostbite.label>仿生体冻伤</FA_BionicFrostbite.label>
+  <FA_BionicFrostbite.labelNoun>仿生体冻伤</FA_BionicFrostbite.labelNoun>
+  <FA_BionicFrostbite.description>安装在肢体上的仿生部件受到的冻伤。属性与原版冻伤完全相同。</FA_BionicFrostbite.description>
+
+  <FA_BionicStab.label>仿生体刺伤</FA_BionicStab.label>
+  <FA_BionicStab.labelNoun>仿生体刺伤</FA_BionicStab.labelNoun>
+  <FA_BionicStab.description>安装在肢体上的仿生部件受到的穿刺损伤。属性与原版刺伤完全相同。</FA_BionicStab.description>
+
+  <FA_BionicAcidBurn.label>仿生体化学烧伤</FA_BionicAcidBurn.label>
+  <FA_BionicAcidBurn.labelNoun>仿生体化学烧伤</FA_BionicAcidBurn.labelNoun>
+  <FA_BionicAcidBurn.description>安装在肢体上的仿生部件受到的化学烧伤。属性与原版化学烧伤完全相同。</FA_BionicAcidBurn.description>
+
+  <FA_BionicBeamWound.label>仿生体光束灼伤</FA_BionicBeamWound.label>
+  <FA_BionicBeamWound.labelNoun>仿生体光束灼伤</FA_BionicBeamWound.labelNoun>
+  <FA_BionicBeamWound.description>安装在肢体上的仿生部件受到的光束灼伤。属性与原版光束灼伤完全相同。</FA_BionicBeamWound.description>
+
+</LanguageData>

@@ -37,18 +37,19 @@ namespace FoldLimbs
     public class FoldLimbsSettings : ModSettings
     {
         /// <summary>
-        /// When true, the natural parts under a restrained bionic limb are excluded from combat hit
-        /// selection entirely (like vanilla, where those parts are missing): every hit on that limb
-        /// becomes bionic damage on the shoulder/leg that carries the bionic. Default false.
+        /// When true, the natural parts kept under a restrained bionic limb are excluded from combat
+        /// hit selection (like vanilla, where those parts are missing) and hits on the shoulder/leg
+        /// always damage the bionic: every hit on such a limb becomes bionic damage. Default false.
         /// </summary>
         public bool disableNaturalPartsHitChance;
 
         /// <summary>
-        /// When <see cref="disableNaturalPartsHitChance"/> is false: a hit that lands on a natural
-        /// part of a restrained bionic limb is converted into bionic damage (a wound on the
-        /// shoulder/leg carrying the bionic, like a vanilla bionic install) with this probability
-        /// (0..1, default 0.8). The remaining 1 - ratio damages the natural limb as if no bionic was
-        /// installed, causing normal bleeding and pain.
+        /// For a hit that lands on the shoulder/leg itself (the part that carries both the bionic and
+        /// the kept original limb), this is the probability (0..1, default 0.8) that the hit damages
+        /// the bionic (bionic mirror wound: no pain, no bleeding, reduced efficiency like vanilla).
+        /// With 1 - ratio the hit hurts the original limb: an ordinary flesh wound on the same part
+        /// with bleeding and pain. Ignored while <see cref="disableNaturalPartsHitChance"/> is true.
+        /// Elemental damage (burn/frostbite/acid/beam) always hits both layers and ignores this ratio.
         /// </summary>
         public float bionicDamageRatio = 0.8f;
 
@@ -60,13 +61,13 @@ namespace FoldLimbs
             list.Begin(inRect);
 
             list.Label((TaggedString)"Bionic-on-natural-limb damage handling", -1f,
-                "Configures how combat damage is handled for limbs that received a bionic while the natural limb was kept (this mod's install-bionic-without-removing surgery).");
+                "Configures how combat damage is handled for limbs that received a bionic while the natural limb was kept (this mod's install-bionic-without-removing surgery). The kept natural limb parts under the bionic are ordinary flesh and can be hit; hits on the shoulder/leg itself are split by the ratio below into bionic and original-limb damage.");
 
             list.Gap(12f);
             list.CheckboxLabeled("Disable combat hits on the natural parts under a restrained bionic limb",
                 ref disableNaturalPartsHitChance,
-                "Checked: the natural parts under the bionic can never be hit. Every hit on the limb becomes bionic damage on the shoulder/leg - identical to a normal vanilla bionic install.\n\n" +
-                "Unchecked: the natural parts can be hit. Use the damage allocation ratio below to decide how often a hit on a natural part damages the bionic instead of the natural limb.");
+                "Checked: the natural parts kept under the bionic can never be hit and hits on the shoulder/leg always damage the bionic - identical to a normal vanilla bionic install (where those parts are missing).\n\n" +
+                "Unchecked: natural parts can be hit (they take ordinary flesh damage) and hits on the shoulder/leg are allocated between the bionic and the original limb by the ratio below.");
 
             list.Gap(14f);
             list.Label("Bionic damage allocation ratio: " + bionicDamageRatio.ToStringPercent());
@@ -83,8 +84,8 @@ namespace FoldLimbs
                 ref bionicDamageRatioBuffer, 0f, 1f);
 
             list.Gap(6f);
-            list.Label((TaggedString)"When a hit lands on a natural part of the limb, with this probability it is converted into bionic damage on the shoulder/leg (like vanilla bionic wounds: cracks, no pain, no bleeding). With 1 - this ratio the hit damages the natural limb as if no bionic was installed, causing normal bleeding and pain.",
-                -1f, "Ignored while the option above is checked.");
+            list.Label((TaggedString)"For hits that land on the shoulder/leg itself, this is the probability that the damage is bionic damage ('bionic crack/gunshot/...', no pain, no bleeding, reduced efficiency like a vanilla bionic). With 1 - this ratio the hit hurts the original limb: an ordinary flesh wound on the same part with bleeding and pain. Burn/frostbite damage always affects both the bionic and the natural limb instead of being allocated.",
+                -1f, "Elemental (burn/frostbite/acid/beam) damage ignores this ratio.");
 
             list.End();
         }

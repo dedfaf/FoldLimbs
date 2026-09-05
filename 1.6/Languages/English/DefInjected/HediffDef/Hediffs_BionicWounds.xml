@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <FA_BionicCrack.label>bionic crack</FA_BionicCrack.label>
+  <FA_BionicCrack.labelNoun>bionic crack damage</FA_BionicCrack.labelNoun>
+  <FA_BionicCrack.description>Crack damage to an installed artificial body part. Properties are identical to a vanilla crack wound.</FA_BionicCrack.description>
+
+  <FA_BionicGunshot.label>bionic gunshot</FA_BionicGunshot.label>
+  <FA_BionicGunshot.labelNoun>bionic gunshot wound</FA_BionicGunshot.labelNoun>
+  <FA_BionicGunshot.description>Gunshot damage to an installed artificial body part. Properties are identical to a vanilla gunshot wound.</FA_BionicGunshot.description>
+
+  <FA_BionicBurn.label>bionic burn</FA_BionicBurn.label>
+  <FA_BionicBurn.labelNoun>bionic burn</FA_BionicBurn.labelNoun>
+  <FA_BionicBurn.description>Burn damage to an installed artificial body part. Properties are identical to a vanilla burn.</FA_BionicBurn.description>
+
+  <FA_BionicFrostbite.label>bionic frostbite</FA_BionicFrostbite.label>
+  <FA_BionicFrostbite.labelNoun>bionic frostbite</FA_BionicFrostbite.labelNoun>
+  <FA_BionicFrostbite.description>Frostbite damage to an installed artificial body part. Properties are identical to vanilla frostbite.</FA_BionicFrostbite.description>
+
+  <FA_BionicStab.label>bionic stab</FA_BionicStab.label>
+  <FA_BionicStab.labelNoun>bionic stab wound</FA_BionicStab.labelNoun>
+  <FA_BionicStab.description>Stab damage to an installed artificial body part. Properties are identical to a vanilla stab wound.</FA_BionicStab.description>
+
+  <FA_BionicAcidBurn.label>bionic acid burn</FA_BionicAcidBurn.label>
+  <FA_BionicAcidBurn.labelNoun>bionic acid burn</FA_BionicAcidBurn.labelNoun>
+  <FA_BionicAcidBurn.description>Acid burn damage to an installed artificial body part. Properties are identical to a vanilla acid burn.</FA_BionicAcidBurn.description>
+
+  <FA_BionicBeamWound.label>bionic beam wound</FA_BionicBeamWound.label>
+  <FA_BionicBeamWound.labelNoun>bionic beam wound</FA_BionicBeamWound.labelNoun>
+  <FA_BionicBeamWound.description>Beam damage to an installed artificial body part. Properties are identical to a vanilla beam wound.</FA_BionicBeamWound.description>
+
+</LanguageData>

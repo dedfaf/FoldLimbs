@@ -206,6 +206,63 @@ namespace FoldLimbs
             }
             return candidates.RandomElementByWeight(p => p.coverageAbs);
         }
+
+        /// <summary>
+        /// Missing parts that the vanilla health card hides because they lie under an installed
+        /// artificial body part. Vanilla <c>HediffSet.CacheMissingPartsCommonAncestors</c> skips any
+        /// part that has a directly added part on itself or an ancestor, so the natural parts removed
+        /// when a bionic is installed - or later destroyed under it - are never listed as destroyed.
+        /// This method returns exactly the top-most hidden missing parts:
+        ///   * the part itself must NOT carry the added part (it is a natural part under/next to the
+        ///     bionic, not the bionic node);
+        ///   * the part (or an ancestor) must have a directly added part, i.e. it sits in the zone
+        ///     vanilla suppresses;
+        ///   * no ancestor of the part may be missing - if a parent was removed the parent is the
+        ///     entry that gets listed (the vanilla "common ancestor" display rule).
+        /// </summary>
+        public static List<Hediff_MissingPart> GetMissingPartsUnderArtificialPart(Pawn pawn)
+        {
+            List<Hediff_MissingPart> result = new List<Hediff_MissingPart>();
+            if (pawn == null || pawn.health == null || pawn.health.hediffSet == null)
+            {
+                return result;
+            }
+            HediffSet set = pawn.health.hediffSet;
+            for (int i = 0; i < set.hediffs.Count; i++)
+            {
+                if (!(set.hediffs[i] is Hediff_MissingPart missing) || missing.Part == null)
+                {
+                    continue;
+                }
+                BodyPartRecord part = missing.Part;
+                // The bionic node itself is not a "removed sub-part".
+                if (set.HasDirectlyAddedPartFor(part))
+                {
+                    continue;
+                }
+                // Only parts vanilla hides because they are in the artificial zone.
+                if (!set.PartOrAnyAncestorHasDirectlyAddedParts(part))
+                {
+                    continue;
+                }
+                // Skip descendants of a removed part: the missing ancestor is the one that is listed.
+                bool hasMissingAncestor = false;
+                for (BodyPartRecord ancestor = part.parent; ancestor != null; ancestor = ancestor.parent)
+                {
+                    if (set.PartIsMissing(ancestor))
+                    {
+                        hasMissingAncestor = true;
+                        break;
+                    }
+                }
+                if (hasMissingAncestor)
+                {
+                    continue;
+                }
+                result.Add(missing);
+            }
+            return result;
+        }
     }
 }
 

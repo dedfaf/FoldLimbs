@@ -448,6 +448,74 @@ namespace FoldLimbs
     }
 
     /// <summary>
+    /// Vanilla suppresses the display of removed ("destroyed") natural body parts that lie under an
+    /// installed artificial body part: <c>HediffSet.CacheMissingPartsCommonAncestors</c> skips every
+    /// part that has a directly added part on itself or an ancestor, and the health card lists
+    /// MissingParts only from that list. This patch makes the health card additionally list the
+    /// natural sub-parts removed under a bionic/prosthetic (for example the arm/hand amputated when
+    /// a bionic arm was installed, or a natural part destroyed under a restrained-bionic limb).
+    /// Only the TOP-MOST hidden missing parts are added - if a parent part was removed, its children
+    /// stay hidden, exactly like the vanilla "common ancestor" display rule.
+    /// Gameplay is untouched: the shared cached list that drives hit coverage, the health summary,
+    /// healing pods and resurrection is only temporarily extended while the health card is being
+    /// drawn and is restored immediately afterwards.
+    /// </summary>
+    [HarmonyPatch(typeof(HealthCardUtility), nameof(HealthCardUtility.DrawHediffListing))]
+    public static class Patch_HealthCardUtility_ShowRemovedPartsUnderBionic
+    {
+        private static readonly System.Reflection.FieldInfo CachedMissingPartsField =
+            AccessTools.Field(typeof(HediffSet), "cachedMissingPartsCommonAncestors");
+
+        private static List<Hediff_MissingPart> savedCache;
+        private static bool active;
+
+        public static void Prefix(Pawn pawn)
+        {
+            if (FoldLimbsMod.Instance == null
+                || pawn == null
+                || pawn.health == null
+                || pawn.health.hediffSet == null
+                || CachedMissingPartsField == null)
+            {
+                return;
+            }
+            HediffSet set = pawn.health.hediffSet;
+            // If a previous call did not finish (an exception), restore first so we never build on
+            // a stale augmented list.
+            if (active)
+            {
+                CachedMissingPartsField.SetValue(set, savedCache);
+                active = false;
+                savedCache = null;
+            }
+            List<Hediff_MissingPart> extra = FoldLimbsUtility.GetMissingPartsUnderArtificialPart(pawn);
+            if (extra == null || extra.Count == 0)
+            {
+                return;
+            }
+            savedCache = (List<Hediff_MissingPart>)CachedMissingPartsField.GetValue(set);
+            List<Hediff_MissingPart> combined = new List<Hediff_MissingPart>();
+            if (savedCache != null)
+            {
+                combined.AddRange(savedCache);
+            }
+            combined.AddRange(extra);
+            CachedMissingPartsField.SetValue(set, combined);
+            active = true;
+        }
+
+        public static void Postfix(Pawn pawn)
+        {
+            if (active && pawn != null && pawn.health != null && pawn.health.hediffSet != null)
+            {
+                CachedMissingPartsField?.SetValue(pawn.health.hediffSet, savedCache);
+                active = false;
+                savedCache = null;
+            }
+        }
+    }
+
+    /// <summary>
     /// Elemental damage (burn / frostbite / acid / beam - the wound types that have a "bionic"
     /// mirror def) affects BOTH layers of a restrained bionic limb at once, instead of being
     /// allocated to only one: fire, frost etc. reach the natural limb under the bionic shell too.

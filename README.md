@@ -15,9 +15,11 @@ The following surgery types have been added:
 * Enable arm / leg (restore a disabled natural limb)
 * Install bionic limb (without removing the original limb)
 
-All of these surgeries require the **Bionics** research project
+All of these surgeries require the **Bionics** research.
 
 In addition, this mod changes the vanilla logic for removing body parts. In vanilla RimWorld,removing a bionic body part deals 99,999 damage to the entire limb, destroying it completely and also removing the associated `Hediff_AddedPart`. When a pawn has both the **Restrained and Disabled** condition and a bionic body part, performing the bionic removal surgery with this mod will only remove the bionic's added-part hediff, leaving the original limb intact. A **natural** limb that is currently restrained/disabled is not offered for removal/amputation at all - it can only be restored by the "enable limb" surgery.
+
+Part removal hediffs under bionic installed parts will not be hidden.
 
 ### Damage on limbs
 
